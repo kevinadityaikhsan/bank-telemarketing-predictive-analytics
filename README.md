@@ -749,7 +749,6 @@ grid_search = GridSearchCV(
     n_jobs=-1
 )
 
-
 # Fit the GridSearchCV object to the training data.
 grid_search.fit(X_train, y_train)
 
