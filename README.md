@@ -78,19 +78,7 @@ The visualization reveals a significant imbalance in the dataset, with 88.3% of 
 
   <div id="df-e41d0a79-2d4a-4d59-915f-0a731592269d" class="colab-df-container">
     <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
