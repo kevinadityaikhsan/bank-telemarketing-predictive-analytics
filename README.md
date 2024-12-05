@@ -30,7 +30,7 @@ This project proposes a machine learning-driven solution to enhance the effectiv
 This project utilizes the **Bank Marketing Campaigns Dataset** [[5]](https://www.kaggle.com/datasets/volodymyrgavrysh/bank-marketing-campaigns-dataset), which captures the results of marketing campaigns conducted by a bank in Portugal. These campaigns primarily involved direct phone calls to clients, promoting term deposit subscriptions. The target, **`y`**, indicates whether a client subscribed to a term deposit ("yes" or "no").
 
 ### **Dataset Features**  
-The dataset contains 21 features categorized into different types based on their relevance:
+The dataset contains 41,176 observations and 21 features categorized into different types based on their relevance:
 
 1. **Bank Client Data**:
    - **`age`**: Age of the client (numeric).
