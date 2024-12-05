@@ -72,7 +72,7 @@ The dataset was preprocessed by renaming the 'y' column to 'deposit' and convert
 
 ![Deposit Distribution](images/image.png)
 
-The visualization reveals a significant imbalance in the dataset, with 88.3% of clients not making a deposit, compared to only 11.7% who did. This suggests that the majority of clients in the dataset did not engage in the desired action, which may influence model training, potentially leading to a bias towards predicting 'no deposit.' This distribution should be considered when building and evaluating predictive models to account for the class imbalance. Further, exploratory data analysis will be performed to numerical and categorical features.
+The visualization reveals a significant imbalance in the dataset, with 36,536 (88.3%) of clients not making a deposit, compared to only 4,640 (11.7%) who did. This suggests that the majority of clients in the dataset did not engage in the desired action, which may influence model training, potentially leading to a bias towards predicting 'no deposit.' This distribution should be considered when building and evaluating predictive models to account for the class imbalance. Further, exploratory data analysis will be performed to numerical and categorical features.
 
 ### **Numerical Features**
 
@@ -193,22 +193,11 @@ The visualization reveals a significant imbalance in the dataset, with 88.3% of 
       <td>5228.1</td>
       <td>5228.1</td>
     </tr>
-    <tr>
-      <th>9</th>
-      <td>deposit</td>
-      <td>int64</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1</td>
-    </tr>
   </tbody>
 </table>
 </div>
   
-The dataset contains some numerical features with null values. In the 'pdays' feature, which represents the number of days since the client was last contacted during a previous campaign, the minimum value is zero, while the Q1, median, Q3, and maximum are all 999. This suggests that most clients were not previously contacted. This observation aligns with the 'previous' feature, which indicates the number of contacts made before this campaign, where the maximum value is 7, but the minimum, Q1, median, and Q3 values are all zero. We will further investigate the 'pdays' and 'previous' features to better understand the data. Additionally, we will examine the 'campaign' feature, which represents the number of contacts made during this campaign, as there is a significant jump between Q3 (3 contacts) and the maximum (56 contacts), indicating potential anomalies or outliers.
+The dataset contains 9 numerical features, where some of it have null values. In the 'pdays' feature, which represents the number of days since the client was last contacted during a previous campaign, the minimum value is zero, while the Q1, median, Q3, and maximum are all 999. This suggests that most clients were not previously contacted. This observation aligns with the 'previous' feature, which indicates the number of contacts made before this campaign, where the maximum value is 7, but the minimum, Q1, median, and Q3 values are all zero. We will further investigate the 'pdays' and 'previous' features to better understand the data. Additionally, we will examine the 'campaign' feature, which represents the number of contacts made during this campaign, as there is a significant jump between Q3 (3 contacts) and the maximum (56 contacts), indicating potential anomalies or outliers.
 
 <div>
 <table border="1" class="dataframe">
@@ -290,10 +279,12 @@ The 'previous' feature shows that 85.95% of the entries are 0, indicating that t
 
 As anticipated, outliers were identified in the 'campaign' and other features, as visualized through boxplots. These outliers will not be removed or replaced, as they may contain valuable information for identifying patterns in clients likely to make a deposit. Instead, a robust scaler will be applied during data preparation to handle the outliers effectively. The number and percentage of outliers detected will be presented bellow.
 
-Feature: age, Outlier: 458 (1.16%) <br>
-Feature: campaign, Outlier: 2398 (6.09%) <br>
-Feature: previous, Outlier: 5535 (14.05%) <br>
-Feature: cons.conf.idx, Outlier: 436 (1.11%) <br>
+```python
+Feature: age, Outlier: 458 (1.16%)
+Feature: campaign, Outlier: 2398 (6.09%)
+Feature: previous, Outlier: 5535 (14.05%)
+Feature: cons.conf.idx, Outlier: 436 (1.11%)
+```
 
 ### **Categorical Features**
 
@@ -395,7 +386,7 @@ Feature: cons.conf.idx, Outlier: 436 (1.11%) <br>
 </table>
 </div>
 
-As previously mentioned, some categorical features contain missing values, denoted as "unknown." We will first analyze their distribution before deciding whether to handle them using appropriate imputation techniques or treat "unknown" as a separate class. From the 'contact' feature, we observe that the communication type is either 'telephone' or 'cellular.' The 'month' feature reveals that no campaigns were conducted in January or February, while the 'day_of_week' feature indicates that campaigns were only conducted on weekdays. Additionally, since most clients were not contacted in previous campaigns, we expect the majority of 'poutcome' (outcome of the previous marketing campaign) entries to be 'nonexistent.'
+As previously mentioned, some among 10 categorical features contain missing values, denoted as "unknown." We will first analyze their distribution before deciding whether to handle them using appropriate imputation techniques or treat "unknown" as a separate class. From the 'contact' feature, we observe that the communication type is either 'telephone' or 'cellular.' The 'month' feature reveals that no campaigns were conducted in January or February, while the 'day_of_week' feature indicates that campaigns were only conducted on weekdays. Additionally, since most clients were not contacted in previous campaigns, we expect the majority of 'poutcome' (outcome of the previous marketing campaign) entries to be 'nonexistent.'
 
 ![Categorical Features](images/image-2.png)
 
@@ -569,6 +560,19 @@ The key parameters used in this split are:
 - **random_state=42**: This is a fixed seed for reproducibility, ensuring that the split is consistent across different runs of the code.
 
 This step is crucial because it allows for a fair evaluation of the model's performance, preventing overfitting and ensuring that the model generalizes well to new data.
+
+```python
+Training set length: 31435 (80.00%)
+Testing set length: 7859 (20.00%)
+
+Training set target distribution:
+Class 1 (Deposit): 3662 (11.65%)
+Class 0 (No Deposit): 27773 (88.35%)
+
+Testing set target distribution:
+Class 1 (Deposit): 915 (11.64%)
+Class 0 (No Deposit): 6944 (88.36%)
+```
 
 ### **Scale Numerical Features**
 
@@ -752,28 +756,23 @@ grid_search = GridSearchCV(
 # Fit the GridSearchCV object to the training data.
 grid_search.fit(X_train, y_train)
 
-# Print the best hyperparameters and the corresponding recall score.
-print(f"Best hyperparameters: {grid_search.best_params_}")
-print(f"Best cross-validation recall score: {grid_search.best_score_:.4f}")
-
 # Evaluate the best model on the test set.
 best_lr = grid_search.best_estimator_
 y_pred = best_lr.predict(X_test)
 test_recall = recall_score(y_test, y_pred)
-print(f"Test set recall score: {test_recall:.4f}")
 ```
 
-Best hyperparameters: {'C': 0.001, 'penalty': 'l1', 'solver': 'liblinear'} <br>
-Best cross-validation recall score: 0.7089 <br>
-Test set recall score: 0.7169 <br>
+```python
+Best hyperparameters: {'C': 0.001, 'penalty': 'l1', 'solver': 'liblinear'}
+Best cross-validation recall score: 0.7089
+Test set recall score: 0.7169
+```
+
 
 **Hyperparameter tuning** is performed using **GridSearchCV** to optimize the Logistic Regression model for the recall metric.
 
 1. **Define the Parameter Grid**
-   - A dictionary `param_grid` is created to define the hyperparameters to be tuned:
-     - **C**: The regularization strength. A smaller value indicates stronger regularization.
-     - **penalty**: Specifies the regularization method. `'l1'` is Lasso regularization (L1), and `'l2'` is Ridge regularization (L2).
-     - **solver**: The optimization algorithm to be used. `'liblinear'` is suitable for small datasets, and `'saga'` is more efficient for larger datasets.
+   - A dictionary `param_grid` is created to define the hyperparameters to be tuned.
 
 2. **Create a Logistic Regression Model**
    - A Logistic Regression model is initialized with `class_weight='balanced'` to handle class imbalance, and `random_state=42` for reproducibility.
@@ -788,13 +787,9 @@ Test set recall score: 0.7169 <br>
 
 4. **Fit GridSearchCV**
    - The `fit` method is called to search over the hyperparameter grid and find the best combination based on recall score.
-
-5. **Output Best Hyperparameters and Score**
-   - The best hyperparameters (`best_params_`) and the best cross-validation recall score (`best_score_`) are printed.
    
 6. **Evaluate the Best Model on the Test Set**
    - The best model found through GridSearchCV (`best_lr`) is used to predict the target values for the test set.
-   - The recall score on the test set is calculated and printed.
 
 **Output Interpretation**
 - **Best hyperparameters**: `{'C': 0.001, 'penalty': 'l1', 'solver': 'liblinear'}`: The best combination of hyperparameters for optimizing recall.
