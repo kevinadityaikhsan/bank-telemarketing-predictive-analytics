@@ -546,7 +546,7 @@ This indicates that the model correctly identified 71.69% of the clients who wil
 
 To evaluate the business impact of using the model versus not using the model, we'll calculate **cost savings** and **revenue gains** based on the recall metric.
 
-#### **Recall Calculation**
+#### **1. Recall Calculation**
 
 - **Without Model**
 
@@ -558,13 +558,17 @@ $$\text{Recall without model} = \frac{915}{915 + 0} = 1.0$$
 
     The recall with the model is $0.7169$ as calculated before.
 
-#### **Cost Savings**
+#### **2. Cost Savings**
 
-- **Without the model**, the telemarketing campaign would make calls to all 7859 clients. The cost per call is €5, so the total cost of calling all clients is:
+- **Without the Model**, 
+
+   The telemarketing campaign would make calls to all 7859 clients. The cost per call is €5, so the total cost of calling all clients is:
 
 $$\text{Total cost without model} = 7859 \times 5 = €39,295$$
 
-- **With the model**, the calls are more targeted. Only clients predicted to make a deposit (TP + FP) are called. Therefore, the number of calls made would be:
+- **With the Model**
+   
+   The calls are more targeted. Only clients predicted to make a deposit (TP + FP) are called. Therefore, the number of calls made would be:
 
 $$\text{Number of calls with model} = 656 (\text{TP}) + 1953 (\text{FP}) = 2609$$
 
@@ -576,17 +580,19 @@ $$\text{Total cost with model} = 2609 \times 5 = €13,045$$
 
 $$\text{Cost savings} = €39,295 - €13,045 = €26,250$$
 
-#### **Revenue Gains**
+#### **3. Revenue Gains**
 
 Each successful deposit is worth €62.50 annually. The total revenue from successful deposits can be calculated as:
 
 - **Without Model**
-Since all 915 positive clients are contacted, the revenue generated from successful deposits is:
+
+   Since all 915 positive clients are contacted, the revenue generated from successful deposits is:
 
 $$\text{Revenue without model} = 915 \times 62.5 = €57,187.50$$
 
 - **With Model**
-The model identifies 656 True Positives who are predicted to make a deposit. Therefore, the revenue generated with the model is:
+   
+   The model identifies 656 True Positives who are predicted to make a deposit. Therefore, the revenue generated with the model is:
 
 $$\text{Revenue with model} = 656 \times 62.5 = €41,000$$
 
@@ -594,12 +600,12 @@ $$\text{Revenue with model} = 656 \times 62.5 = €41,000$$
 
 $$\text{Revenue gain} = €41,000 - €57,187.50 = -€16,187.50$$
 
-#### **Total Business Impact**
+#### **4. Total Business Impact**
 
 - **Cost Savings**: €26,250 (from reducing the number of calls made)
 - **Revenue Gain**: -€16,187.50 (due to fewer positive clients being identified by the model)
 
-#### **Conclusion**
+#### **5. Conclusion**
 
 - **Using the Model** saves **€26,250** in telemarketing costs.
 - **However**, the model results in a **revenue loss** of **€16,187.50** due to fewer positive clients being identified (due to False Negatives).
