@@ -623,11 +623,11 @@ Thus, while the model results in a loss of revenue from missed deposits, it stil
 
 | Feature                | Importance  |
 |------------------------|-------------|
-| campaign               | -0.037524   |
-| contact_telephone      | -0.057961   |
-| poutcome_nonexistent   | -0.197954   |
-| month_may              | -0.324539   |
-| nr.employed            | -0.973173   |
+| campaign               | -0.038   |
+| contact_telephone      | -0.058   |
+| poutcome_nonexistent   | -0.198   |
+| month_may              | -0.324   |
+| nr.employed            | -0.973   |
 
 The feature importance analysis allows us to determine which factors have the most significant impact on customer conversions, particularly on whether a customer will make a deposit or not. By evaluating the coefficients of the trained Logistic Regression model, we can assess how each feature influences the outcome.
 
