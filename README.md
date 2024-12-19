@@ -1,5 +1,7 @@
 # **Telemarketing Predictive Analytics**
 
+![Telemarketing](images/telemarketing.png)
+
 ## **1. Domain Project**  
 
 Marketing campaigns play a crucial role in driving business growth, particularly in the financial industry. Within the context of telemarketing, which involves contacting customers remotely through channels such as telephone calls, organizations have widely adopted this approach. However, outbound telemarketing often faces challenges, such as high costs and intrusiveness, which can negatively impact customer relationships [[1]](https://repositorium.sdum.uminho.pt/bitstream/1822/30994/1/dss-v3.pdf). Each call incurs an estimated cost of €5 [[2]](https://www.maestroqa.com/blog/call-center-cost-per-call), making it essential to optimize targeting strategies to ensure that only customers with the highest likelihood of success are contacted. Furthermore, considering a minimum deposit requirement of €5,000 [[3]](https://www.bancomontepio.pt/en/individuals/savings-and-retirement/term-deposits) and an average Net Interest Margin (NIM) of 1.25% in Portugal [[4]](https://www.theglobaleconomy.com/Portugal/net_interest_margin/), successful calls represent significant revenue opportunities, generating an estimated net revenue of €62.50 per deposit annually.
