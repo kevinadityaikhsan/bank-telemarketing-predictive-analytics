@@ -560,7 +560,7 @@ $$\text{Recall without model} = \frac{915}{915 + 0} = 1.0$$
 
 #### **2. Cost Savings**
 
-- **Without the Model**, 
+- **Without the Model** 
 
    The telemarketing campaign would make calls to all 7859 clients. The cost per call is €5, so the total cost of calling all clients is:
 
