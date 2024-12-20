@@ -1,6 +1,6 @@
 # **Telemarketing Predictive Analytics**
 
-![Telemarketing](images/telemarketing.png)
+![Telemarketing](images/image.png)
 
 ## **1. Domain Project**  
 
@@ -61,14 +61,14 @@ The project utilizes the [**Bank Marketing Campaigns Dataset** [5]](https://www.
    - **`euribor3m`**: Euribor 3-month rate (numeric).
    - **`nr.employed`**: Number of employees (numeric).
 
-5. **Target**
+5. **Target**wdqd
    - **`y`**: Whether the client subscribed to a term deposit (binary: "yes", "no").
 
 ### **3.2. Exploratory Data Analysis**  
 
 The dataset was preprocessed by renaming the 'y' column to 'deposit' and converting its values from categorical ('yes', 'no') to numerical (1, 0). The 'duration' feature, which represents the last contact duration in seconds, was removed as it is only known after the call and could introduce data leakage, making it unsuitable for realistic predictive models.
 
-![Deposit Distribution](images/image.png)
+![Deposit Distribution](images/image-0.png)
 
 The visualization reveals a significant imbalance in the dataset, with 36,536 (88.3%) of clients not making a deposit, compared to only 4,640 (11.7%) who did. This suggests that the majority of clients in the dataset did not engage in the desired action, which may influence model training, potentially leading to a bias towards predicting 'no deposit.' This distribution should be considered when building and evaluating predictive models to account for the class imbalance. Further, exploratory data analysis will be performed to numerical and categorical features.
 
