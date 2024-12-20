@@ -2,7 +2,7 @@
 
 ![Telemarketing](images/image.png)
 
-## **1. Domain Project**  
+## **1. Project Domain**  
 
 Marketing campaigns play a crucial role in driving business growth, particularly in the financial industry. Within the context of telemarketing, which involves contacting customers remotely through channels such as telephone calls, organizations have widely adopted this approach. However, outbound telemarketing often faces challenges, such as high costs and intrusiveness, which can negatively impact customer relationships [[1]](https://repositorium.sdum.uminho.pt/bitstream/1822/30994/1/dss-v3.pdf). Each call incurs an estimated cost of €5 [[2]](https://www.maestroqa.com/blog/call-center-cost-per-call), making it essential to optimize targeting strategies to ensure that only customers with the highest likelihood of success are contacted. Furthermore, considering a minimum deposit requirement of €5,000 [[3]](https://www.bancomontepio.pt/en/individuals/savings-and-retirement/term-deposits) and an average Net Interest Margin (NIM) of 1.25% in Portugal [[4]](https://www.theglobaleconomy.com/Portugal/net_interest_margin/), successful calls represent significant revenue opportunities, generating an estimated net revenue of €62.50 per deposit annually.
 
@@ -61,7 +61,7 @@ The project utilizes the [**Bank Marketing Campaigns Dataset** [5]](https://www.
    - **`euribor3m`**: Euribor 3-month rate (numeric).
    - **`nr.employed`**: Number of employees (numeric).
 
-5. **Target**wdqd
+5. **Target**
    - **`y`**: Whether the client subscribed to a term deposit (binary: "yes", "no").
 
 ### **3.2. Exploratory Data Analysis**  
@@ -652,7 +652,7 @@ The findings based on the feature importance analysis are:
 
 This analysis helps identify critical variables that influence customer behavior, providing valuable insights for optimizing telemarketing strategies and increasing deposit conversions.
 
-## **7. Referensi**
+## **7. References**
 
 [1] Moro, S., Cortez, P., & Rita, P. 2014. A data-driven approach to predict the success of bank telemarketing. Decis. Support Syst., 62, 22-31. https://repositorium.sdum.uminho.pt/bitstream/1822/30994/1/dss-v3.pdf
 
