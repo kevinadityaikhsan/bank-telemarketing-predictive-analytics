@@ -1,4 +1,4 @@
-# **Telemarketing Predictive Analytics**
+# **Bank Telemarketing Predictive Analytics**
 
 ![Telemarketing](images/image.png)
 
