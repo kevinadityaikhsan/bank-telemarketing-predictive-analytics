@@ -104,7 +104,9 @@ The proportion of values in the 'pdays' feature indicates that 96.16% of the ent
 | 1        | 11.37      |
 | 2        | 1.90       |
 | 3        | 0.54       |
-| 4        | 0.18       |The 'previous' feature shows that 85.95% of the entries are 0, indicating that the majority of clients were never contacted in previous campaigns. Other values represent a small proportion of the data, reflecting clients who were contacted once or more. Given that the value 0 is valid for clients who were not previously contacted, and dropping this feature may result in the loss of valuable information about clients' interaction history with previous campaigns, the 'previous' feature will be retained in the dataset.
+| 4        | 0.18       |
+
+The 'previous' feature shows that 85.95% of the entries are 0, indicating that the majority of clients were never contacted in previous campaigns. Other values represent a small proportion of the data, reflecting clients who were contacted once or more. Given that the value 0 is valid for clients who were not previously contacted, and dropping this feature may result in the loss of valuable information about clients' interaction history with previous campaigns, the 'previous' feature will be retained in the dataset.
 
 ![Numerical Features](images/image-1.png)
 
@@ -288,25 +290,12 @@ This encoding process ensures that categorical features are appropriately repres
 X_train = pd.concat([X_train_scaled, X_train_encoded], axis=1)
 X_test = pd.concat([X_test_scaled, X_test_encoded], axis=1)
 ```
+
 After scaling the numerical features and encoding the categorical ones, the next step is to combine them into a single dataset for model training and evaluation. This is done using `pd.concat`, which merges the scaled numerical features (`X_train_scaled`) and the encoded categorical features (`X_train_encoded`) horizontally (`axis=1`) for the training set, and the same operation is applied to the test set. This ensures that both the numerical and categorical features are included in a unified dataset, providing the complete set of input data for the machine learning model. Combining the features in this way guarantees consistency across both the training and test datasets, allowing the model to learn from all relevant features.
 
 ## **5. Modeling**
 
 ### **5.1. Model Overview**
-
-```python
-# Define a dictionary of models.
-models = {
-    'Logistic Regression': LogisticRegression(class_weight='balanced'),
-    'Naive Bayes': GaussianNB(),
-    'KNN': KNeighborsClassifier(),
-    'Decision Tree': DecisionTreeClassifier(class_weight='balanced', random_state=42),
-    'Random Forest': RandomForestClassifier(class_weight='balanced', random_state=42),
-    'AdaBoost': AdaBoostClassifier(random_state=42),
-    'Gradient Boosting': GradientBoostingClassifier(random_state=42),
-    'XGBoost': XGBClassifier(random_state=42)
-}
-```
 
 A dictionary of machine learning models is defined, where each key represents the name of the model, and the value is the corresponding model object. The models included are:
 
